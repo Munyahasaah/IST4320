@@ -1,0 +1,33 @@
+# Intro to R for Data Analytics
+
+```{r}
+#please check the lecture for explanations 😀
+library(tidyverse) #this loads an R package to the current instance. 
+install.packages("tidyverse") #this installs an R package. You only need to do this once (but maybe again on new server)
+install.packages("readxl") #this package has a function that lets us read in excel files
+library(readxl)
+demo <- read_excel("C:/Users/mcasa/CSUSB/IST 2510/demo.xlsx") #this will load the FIRST sheet of data from my excel spreadsheet
+#and it stores it into the object called data
+names(demo) #this will show us the column names inside the data tibble
+```
+
+### Common data formats in R
+
+Data is often worked in R in several object formats
+
+-   Tidyverse tibbles
+
+-   Base R vectors or dataframes
+
+-   Data.table
+
+```{r}
+demo["age"] #this is a tibble (tidyverse, upgraded R). We'll use this a lot in class
+demo[["age"]] #this is a vector from Base R (the original R), or multiple vectors can be combined in a dataframe
+demo$`age` #this also gives a Base R vector
+
+library(data.table)  #this loads the data.table object format functions
+as.data.table(demo) #this is a data.table format. We may or may not use this format in class.
+```
+
+Copyright by Benjamin J. Becerra v2022.12.19.01
